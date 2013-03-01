@@ -6,10 +6,7 @@ Currently devices supported:
   * Galaxy Ace i - (GT-S5830i)
   * Galaxy Y - (GT-S5360)
   * Galaxy Mini i - (GT-S5570i)
-
-Working  on it:
-
-  * Galaxy Pokcet - ()
+  * Galaxy Pocket - (GT-S5300)
 
 People who made this possible: (alfabetical)
 
@@ -18,4 +15,3 @@ People who made this possible: (alfabetical)
   * Spacecaker
   * Squadzone
   * WhiteXP
-

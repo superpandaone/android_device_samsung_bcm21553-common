@@ -30,7 +30,6 @@ PRODUCT_PACKAGES += \
     e2fsck \
     erase_image \
     flash_image \
-    Torch \
     HoloSpiralWallpaper \
     LiveWallpapersPicker \
     VisualizationWallpapers

@@ -20,6 +20,8 @@
 
 # Set this up here so that BoardVendorConfig.mk can override it
 
+LOCAL_PATH:= $(call my-dir)
+
 # Board
 TARGET_ARCH_VARIANT := armv6-vfp
 TARGET_CPU_ABI := armeabi-v6l

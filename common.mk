@@ -148,7 +148,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1
 
-# Other kernel modules not in ramdisk
+# Note for the kernel:
+#    * This kernel is not compatible with your device, it's just for build the ROM
+#    * Delete the boot.img inside your package and modify update-script to not install kernel
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/samsung/bcm21553-common/prebuilt/kernel
 else

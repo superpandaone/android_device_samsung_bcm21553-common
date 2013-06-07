@@ -84,19 +84,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/lib/hw/gralloc.bcm21553.so:system/lib/hw/gralloc.default.so 
 
-
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=eth0 \
     wifi.supplicant_scan_interval=15 \
-    ro.telephony.ril_class=samsung \
-    ro.telephony.sends_barcount=1 \
-    mobiledata.interfaces=pdp0,eth0,gprs,ppp0 \
     persist.service.usb.setting=0 \
     dev.sfbootcomplete=0 \
     persist.sys.vold.switchexternal=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=131072
 
 # Enable Google-specific location features, like NetworkLocationProvider and LocationCollector
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -11,7 +11,7 @@ Currently devices supported:
 People who made this possible: (alfabetical)
 
   * Bieltv.3
-  * Phiexz
+  * Kissingmylove
+  * PshychoGame
   * Spacecaker
-  * Squadzone
   * WhiteXP

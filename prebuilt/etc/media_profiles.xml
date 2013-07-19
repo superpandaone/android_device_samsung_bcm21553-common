@@ -41,7 +41,6 @@
 <!ELEMENT ImageDecoding EMPTY>
 <!ATTLIST ImageDecoding memCap CDATA #REQUIRED>
 <!ELEMENT Camera EMPTY>
-<!ATTLIST Camera previewFrameRate CDATA #REQUIRED>
 <!ELEMENT EncoderOutputFileFormat EMPTY>
 <!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
 <!ELEMENT VideoEncoderCap EMPTY>
@@ -106,38 +105,10 @@
 
         </EncoderProfile>
 
-       <EncoderProfile quality="mms" fileFormat="3gp" duration="60">
-            <Video codec="h263"
-                   bitRate="360000"
-                   width="176"
-                   height="144"
-                   frameRate="30" />
-
-            <Audio codec="amrwb"
-                   bitRate="23850"
-                   sampleRate="16000"
-                   channels="1" />
-        </EncoderProfile>
-
-       <EncoderProfile quality="youtube" fileFormat="mp4" duration="60">
-            <Video codec="h264"
-                   bitRate="2500000"
-                   width="640"
-                   height="480"
-                   frameRate="30" />
-
-            <Audio codec="aac"
-                   bitRate="62900"
-                   sampleRate="48000"
-                   channels="2" />
-        </EncoderProfile>
-
         <ImageEncoding quality="90" />
         <ImageEncoding quality="80" />
         <ImageEncoding quality="70" />
         <ImageDecoding memCap="20000000" />
-
-        <Camera previewFrameRate="30" />
 
     </CamcorderProfiles>
 

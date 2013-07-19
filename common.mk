@@ -14,6 +14,7 @@
 
 # Libs
 PRODUCT_PACKAGES += \
+    libstagefrighthw \
     overlay.bcm21553 \
     lights.bcm21553
 
@@ -28,6 +29,9 @@ PRODUCT_PACKAGES += \
     flash_image \
     screencap \
     FM \
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
     HoloSpiralWallpaper \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -49,7 +53,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
     device/samsung/bcm21553-common/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/samsung/bcm21553-common/prebuilt/usr/keychars/sec_key.kcm.bin:system/usr/keychars/sec_key.kcm.bin \
+    device/samsung/bcm21553-common/prebuilt/usr/keychars/sec_key.kcm.bin:system/usr/keychars/sec_key.kcm.bin
 
 # Keymap
 PRODUCT_COPY_FILES += \
@@ -64,7 +68,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
     device/samsung/bcm21553-common/prebuilt/etc/asound.conf:system/etc/asound.conf \
-    device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -74,29 +78,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/lib/modules/dhd.ko:system/lib/modules/dhd.ko \
     device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs \
-    device/samsung/bcm21553-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/samsung/bcm21553-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# HGL
+# Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/lib/egl/libGLES_hgl.so:system/lib/egl/libGLES_hgl.so
-
-# Gralloc
-PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/lib/hw/gralloc.bcm21553.so:system/lib/hw/gralloc.bcm21553.so
+    device/samsung/bcm21553-common/prebuilt/bin/brcm_patchram_plus:system/bin/brcm_patchram_plus \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko
 
 # Media Profiles
-# PRODUCT_COPY_FILES += \
-#     device/samsung/bcm21553-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-
-# Tweaks
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=eth0 \
-    wifi.supplicant_scan_interval=15 \
-    persist.service.usb.setting=0 \
-    dev.sfbootcomplete=0 \
-    persist.sys.vold.switchexternal=1
-
-# Enable Google-specific location features, like NetworkLocationProvider and LocationCollector
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.locationfeatures=1 \
-    ro.com.google.networklocation=1
+PRODUCT_COPY_FILES += \
+    device/samsung/bcm21553-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \

@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
     erase_image \
     flash_image \
     screencap \
-    FM \
+    FM
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \

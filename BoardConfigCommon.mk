@@ -36,12 +36,12 @@ BOARD_PREBUILT_LIBAUDIO := true
 BUILD_WITH_ALSA_UTILS := true
 
 # Camera
-USE_CAMERA_STUB := true
-ifeq ($USE_CAMERA_STUB),false)
-BOARD_CAMERA_LIBRARIES := libcamera
-BOARD_USE_CAF_LIBCAMERA_GB_REL := true
-BOARD_CAMERA_USE_GETBUFFERINFO := true
-endif
+USE_CAMERA_STUB := false
+#ifeq ($USE_CAMERA_STUB),false)
+#BOARD_CAMERA_LIBRARIES := libcamera
+#BOARD_USE_CAF_LIBCAMERA_GB_REL := true
+#BOARD_CAMERA_USE_GETBUFFERINFO := true
+#endif
 
 # 3D
 BOARD_EGL_CFG := device/samsung/bcm21553-common/prebuilt/lib/egl/egl.cfg

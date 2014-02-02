@@ -41,11 +41,11 @@ PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/root/sbin/killrecovery.sh:root/sbin/killrecovery.sh \
     device/samsung/bcm21553-common/prebuilt/root/sbin/nandroid-md5.sh:root/sbin/nandroid-md5.sh
 
-# Patched Images
+# Patched Images (location WIP) - take them manually on $(OUT)/root/res/images
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_clockwork:root/sbin/fix_permissions \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_error:root/sbin/fix_permissions \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_firmware_error:root/sbin/fix_permissions \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_firmware_install:root/sbin/fix_permissions \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_installing:root/sbin/fix_permissions \
-    device/samsung/bcm21553-common/prebuilt/root/res/images/progress_fill:root/sbin/fix_permissions
+    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_clockwork.png:root/res/images/icon_clockwork.png \
+    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_error.png:root/res/images/icon_error.png \
+    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_firmware_error.png:root/res/images/icon_firmware_error.png \
+    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_firmware_install.png:root/res/images/icon_firmware_install.png \
+    device/samsung/bcm21553-common/prebuilt/root/res/images/icon_installing.png:root/res/images/icon_installing.png \
+    device/samsung/bcm21553-common/prebuilt/root/res/images/progress_fill.png:root/res/images/progress_fill.png

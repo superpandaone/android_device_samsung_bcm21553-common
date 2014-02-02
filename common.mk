@@ -22,11 +22,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libOmxCore \
     SamsungServiceMode \
-    dexpreopt \
-    dump_image \
-    e2fsck \
-    erase_image \
-    flash_image \
     screencap \
     FM
 

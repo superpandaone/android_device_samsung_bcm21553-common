@@ -12,6 +12,8 @@ People who made this possible: (alfabetical)
 
   * Bieltv.3
   * Kissingmylove
+  * Lopicl.00
+  * Mackief
   * Percy_g2
   * PshychoGame
   * Spacecaker

@@ -25,6 +25,16 @@ PRODUCT_PACKAGES += \
     screencap \
     FM
 
+# Recovery
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    dexpreopt \
+    dump_image \
+    e2fsck \
+    erase_image \
+    flash_image \
+    tune2fs \
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     HoloSpiralWallpaper \

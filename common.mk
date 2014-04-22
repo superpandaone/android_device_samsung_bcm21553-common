@@ -99,7 +99,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth config
 PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+    $(LOCAL_PATH)/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
 
 # WIFI
 PRODUCT_COPY_FILES += \

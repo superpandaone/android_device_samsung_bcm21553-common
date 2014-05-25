@@ -18,6 +18,11 @@ PRODUCT_PACKAGES += \
     overlay.bcm21553 \
     lights.bcm21553
 
+# Audio
+PRODUCT_PACKAGES += \
+    alsa.default \
+    acoustics.default
+
 # Update utilities
 PRODUCT_PACKAGES += \
     libOmxCore \

@@ -31,8 +31,8 @@ TARGET_NO_RADIOIMAGE	 			:= true
 
 # Audio
 BOARD_USES_GENERIC_AUDIO 			:= false
+TARGET_PROVIDES_LIBAUDIO			:= false
 BOARD_USES_ALSA_AUDIO 				:= true
-BOARD_PREBUILT_LIBAUDIO 			:= true
 BUILD_WITH_ALSA_UTILS 				:= true
 
 # Camera

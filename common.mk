@@ -12,31 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+## SAMSUNG_BOOTLOADER is the product model changed into appropriate string parsed by init.
+## Example: -GT-I5500 becomes gt-i5500board, -GT-S5830 becomes gt-s5830board, and so on.
+SAMSUNG_BOOTLOADER := $(shell echo $(PRODUCT_VERSION_DEVICE_SPECIFIC)board | tr '[A-Z]' '[a-z]' | cut -c 2-)
+
 # Add common package overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/bcm21553-common/overlay
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/bcm21553-common/include
 
 # These are the hardware-specific configuration files
-PRODUCT_COPY_FILES := \
-    device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
 
-# Init files
-PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/ramdisk/init.rc:root/init.rc \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.rc:root/init.bcm21553.rc \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.gps.rc:root/init.bcm21553.gps.rc \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.wifi.rc:root/init.bcm21553.wifi.rc \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.usb.rc:root/init.bcm21553.usb.rc \
-    device/samsung/bcm21553-common/ramdisk/init.charge.rc:root/init.charge.rc \
-    device/samsung/bcm21553-common/ramdisk/ueventd.bcm21553.rc:root/ueventd.bcm21553.rc \
-    device/samsung/bcm21553-common/ramdisk/init:root/init \
-    device/samsung/bcm21553-common/ramdisk/adbd:root/sbin/adbd \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.usb.rc:recovery/root/usb.rc \
-    device/samsung/bcm21553-common/ramdisk/init.bcm21553.fs.rc:recovery/root/fs.rc \
-    device/samsung/bcm21553-common/ramdisk/init:recovery/root/init \
-    device/samsung/bcm21553-common/ramdisk/adbd:recovery/root/sbin/adbd
+## Ramdisk
+PRODUCT_PACKAGES += \
+	fstab.$(SAMSUNG_BOOTLOADER) \
+	init.$(SAMSUNG_BOOTLOADER).rc \
+	init.$(SAMSUNG_BOOTLOADER).bt.rc \
+	init.$(SAMSUNG_BOOTLOADER).fs.rc \
+	init.$(SAMSUNG_BOOTLOADER).gps.rc \
+	init.$(SAMSUNG_BOOTLOADER).sensors.rc \
+	init.$(SAMSUNG_BOOTLOADER).swapart.rc \
+	init.$(SAMSUNG_BOOTLOADER).usb.rc \
+	init.$(SAMSUNG_BOOTLOADER).wifi.rc \
+	init.recovery.$(SAMSUNG_BOOTLOADER).rc \
+	ueventd.$(SAMSUNG_BOOTLOADER).rc
 
 # HW drivers
 PRODUCT_PACKAGES += \
@@ -133,13 +132,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Misc. Tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lge.proximity.delay=25 \
-    mot.proximity.delay=25 \
     media.stagefright.enable-player=true \
-    media.stagefright.enable-meta=true \
-    media.stagefright.enable-scan=true \
+    media.stagefright.enable-meta=false \
+    media.stagefright.enable-scan=false \
     media.stagefright.enable-http=true \
-    media.stagefright.enable-record=true \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true
 
@@ -155,11 +151,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=0 \
-    ro.ril.hsxpa=1 \
+    rild.libpath=/system/lib/libbrcm_ril.so \
+    ro.ril.disable.power.collapse=0 \
     ro.ril.gprsclass=10 \
+    ro.ril.hsxpa=1 \
     ro.telephony.call_ring.delay=0 \
-    ro.ril.disable.power.collapse=0
+    ro.telephony.default_network=0 \
+    ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock
 
 # Wifi interface
 PRODUCT_PROPERTY_OVERRIDES += \

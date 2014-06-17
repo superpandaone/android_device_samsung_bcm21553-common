@@ -20,99 +20,127 @@
 
 LOCAL_PATH:= $(call my-dir)
 
+# Custom bootimg (recovery merged into boot ramdisk)
+BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/bcm21553-common/bcm21553-bootimg.mk
+
 # Kernel
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_PROVIDES_INIT := true
-TARGET_PROVIDES_INIT_RC := true
+BOARD_KERNEL_BASE				:= 0x81600000
+BOARD_KERNEL_PAGESIZE				:= 4096
+BOARD_NAND_PAGE_SIZE				:= 4096
+BOARD_NAND_SPARE_SIZE				:= 128
+TARGET_NO_BOOTLOADER				:= true
+TARGET_NO_RADIOIMAGE				:= true
+
+# Kernel ramdisk compression tool
+MINIGZIP					:= $(shell which lzma)
+
+# Kernel source
+TARGET_KERNEL_CUSTOM_TOOLCHAIN			:= arm-eabi-4.4.3
+ARM_EABI_TOOLCHAIN				:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
+TARGET_KERNEL_SOURCE				:= kernel/samsung/bcm21553-common
 
 # Recovery
-TARGET_RECOVERY_INITRC := device/samsung/bcm21553-common/recovery/recovery.rc
-TARGET_RECOVERY_FSTAB := device/samsung/bcm21553-common/recovery/recovery.fstab
-BOARD_BML_BOOT := "/dev/block/bml7"
-BOARD_BML_RECOVERY := "/dev/block/bml8"
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_RECOVERY_HANDLES_MOUNT := true
-BOARD_HAS_DOWNLOAD_MODE := true
+TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/ramdisk/fstab.bcm21553
+BOARD_BML_BOOT					:= "/dev/block/bml7"
+BOARD_BML_RECOVERY				:= "/dev/block/bml8"
+BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/bcm21553_recovery_keys.c
+BOARD_FLASH_BLOCK_SIZE				:= 131072
+TARGET_USERIMAGES_USE_EXT4			:= true
+BOARD_RECOVERY_HANDLES_MOUNT			:= true
+BOARD_HAS_DOWNLOAD_MODE				:= true
+TARGET_RECOVERY_PIXEL_FORMAT			:= BGRA_8888
+TARGET_NO_SEPARATE_RECOVERY			:= true
+
+# Charger mode
+BOARD_CHARGING_CMDLINE_NAME			:= "BOOT_MODE"
+BOARD_CHARGING_CMDLINE_NEEDS_FS			:= true
+BOARD_CHARGING_CMDLINE_VALUE			:= "1"
+BOARD_CHARGING_CMDLINE_RECOVERY_VALUE		:= "4"
+
 
 # Boot Animation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_PRELOAD 			:= true
+TARGET_BOOTANIMATION_TEXTURE_CACHE 		:= true
 
 # Platform
-TARGET_BOARD_PLATFORM := bcm21553
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv6-vfp
-TARGET_CPU_ABI := armeabi-v6l
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT_FPU := vfp
-TARGET_ARCH_VARIANT_CPU := arm1136jf-s
-#TARGET_BOARD_PLATFORM_GPU := videocoreIV
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/bcm21553-common/include
-BCM21553_HARDWARE := true
+TARGET_BOARD_PLATFORM				:= bcm21553
+TARGET_ARCH					:= arm
+TARGET_ARCH_VARIANT				:= armv6-vfp
+TARGET_CPU_ABI					:= armeabi-v6l
+TARGET_CPU_ABI2					:= armeabi
+TARGET_ARCH_VARIANT_FPU				:= vfp
+TARGET_ARCH_VARIANT_CPU				:= arm1136jf-s
+#TARGET_BOARD_PLATFORM_GPU			:= videocoreIV
+TARGET_SPECIFIC_HEADER_PATH			:= device/samsung/bcm21553-common/include
+BCM21553_HARDWARE				:= true
+BOARD_USES_BROADCOM_HARDWARE			:= true
+COMMON_GLOBAL_CFLAGS				+= -DBCM_HARDWARE
 
 # Touchscreen
-BOARD_USE_LEGACY_TOUCHSCREEN := true
+BOARD_USE_LEGACY_TOUCHSCREEN			:= true
 
 # Audio
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_HAVE_SAMSUNG_AUDIO := true
-BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_GENERIC_AUDIO			:= false
+BOARD_HAVE_SAMSUNG_AUDIO			:= true
+BOARD_USES_ALSA_AUDIO				:= true
 
 # RIL
-BOARD_USES_LEGACY_RIL := true
-BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
+BOARD_USES_LEGACY_RIL				:= true
+BOARD_MOBILEDATA_INTERFACE_NAME			:= "pdp0"
 
 # Camera
-USE_CAMERA_STUB := true
-BOARD_V4L2_DEVICE := /dev/video2
-BOARD_CAMERA_DEVICE := /dev/video0
-BOARD_USE_JPEG := true
+USE_CAMERA_STUB					:= true
+BOARD_V4L2_DEVICE				:= /dev/video2
+BOARD_CAMERA_DEVICE				:= /dev/video0
+BOARD_USE_JPEG					:= true
+COMMON_GLOBAL_CFLAGS				+= -DNEEDS_VECTORIMPL_SYMBOLS
 
 # GPU Stuff
-BOARD_EGL_CFG := brcm_usrlib/dag/vmcsx/egl.cfg
-BOARD_NO_RGBX_8888 := true
-#BOARD_NO_32BPP := true
-BOARD_LCD_PARTIAL_UPDATES_ENABLED := true
-BOARD_NO_PAGE_FLIPPING := true
-COMMON_GLOBAL_CFLAGS += -DNO_RGBX_8888 -DMISSING_EGL_PIXEL_FORMAT_YV12
-USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG					:= brcm_usrlib/dag/vmcsx/egl.cfg
+BOARD_NO_RGBX_8888				:= true
+#BOARD_NO_32BPP					:= true
+BOARD_LCD_PARTIAL_UPDATES_ENABLED		:= true
+BOARD_NO_PAGE_FLIPPING				:= true
+USE_OPENGL_RENDERER				:= true
+COMMON_GLOBAL_CFLAGS				+= -DEGL_NEEDS_FNW
+COMMON_GLOBAL_CFLAGS				+= -DNO_RGBX_8888 -DMISSING_EGL_PIXEL_FORMAT_YV12
 
 # Minimal Fonts
-SMALLER_FONT_FOOTPRINT := true
+SMALLER_FONT_FOOTPRINT				:= true
 
 # USB
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/lm-2/gadget/lun0/file
-BOARD_UMS_LUNFILE := "/sys/devices/lm-2/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH			:= /sys/devices/lm-2/gadget/lun0/file
+BOARD_UMS_LUNFILE				:= "/sys/devices/lm-2/gadget/lun0/file"
 
 # Wifi
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-BOARD_WLAN_DEVICE := bcm4330
-BOARD_WLAN_DEVICE_REV := bcm4330
+BOARD_WPA_SUPPLICANT_DRIVER			:= WEXT
+WPA_SUPPLICANT_VERSION				:= VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB		:= lib_driver_cmd_wext
+BOARD_WLAN_DEVICE				:= bcm4330
+BOARD_WLAN_DEVICE_REV				:= bcm4330
 
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcm4330_aps.bin"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcm4330_sta.bin"
-WIFI_DRIVER_FW_PATH_P2P := "/system/etc/wifi/bcm4330_aps.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wifi/bcm4330_sta.bin nvram_path=/system/etc/wifi/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := "bcm4330"
+WIFI_DRIVER_MODULE_PATH				:= "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_AP				:= "/system/etc/wifi/bcm4330_aps.bin"
+WIFI_DRIVER_FW_PATH_STA				:= "/system/etc/wifi/bcm4330_sta.bin"
+WIFI_DRIVER_FW_PATH_P2P				:= "/system/etc/wifi/bcm4330_aps.bin"
+WIFI_DRIVER_MODULE_ARG				:= "firmware_path=/system/etc/wifi/bcm4330_sta.bin nvram_path=/system/etc/wifi/nvram.txt"
+WIFI_DRIVER_MODULE_NAME				:= "bcm4330"
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_HAVE_SAMSUNG_BLUETOOTH := true
+BOARD_BLUEDROID_VENDOR_CONF			:= device/samsung/bcm21553-common/bluetooth/vnd_samsung.txt
+BOARD_HAVE_BLUETOOTH				:= true
+BOARD_HAVE_BLUETOOTH_BCM			:= true
+BOARD_HAVE_SAMSUNG_BLUETOOTH			:= true
 
 # Browser
-JS_ENGINE := v8
-HTTP := chrome
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-TARGET_WEBKIT_USE_MORE_MEMORY := true
-TARGET_FORCE_CPU_UPLOAD := true
+JS_ENGINE					:= v8
+HTTP						:= chrome
+WITH_JIT					:= true
+ENABLE_JSC_JIT					:= true
+TARGET_WEBKIT_USE_MORE_MEMORY			:= true
+TARGET_FORCE_CPU_UPLOAD				:= true
 
 # FM
-#BOARD_HAVE_FM_RADIO := true
-#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-#BOARD_FM_DEVICE := bcm4329
+#BOARD_HAVE_FM_RADIO				:= true
+#BOARD_GLOBAL_CFLAGS				+= -DHAVE_FM_RADIO
+#BOARD_FM_DEVICE				:= bcm4329

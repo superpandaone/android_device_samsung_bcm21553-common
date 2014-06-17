@@ -4,10 +4,10 @@ LOCAL_PATH:= $(call my-dir)
 # fstab.gt-xxxxx
 
 include $(CLEAR_VARS)
-LOCAL_MODULE		:= fstab.$(SAMSUNG_BOOTLOADER)
+LOCAL_MODULE		:= recovery.fstab
 LOCAL_MODULE_TAGS	:= optional
 LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= fstab.bcm21553
+LOCAL_SRC_FILES		:= ../recovery/recovery.fstab
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -25,7 +25,7 @@ include $(BUILD_PREBUILT)
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 	@echo "Adjust init rc script for $(SAMSUNG_BOOTLOADER): $< -> $@"
 	@mkdir -p $(dir $@)
-	$(hide) sed -e 's/fstab.bcm21553/fstab.$(SAMSUNG_BOOTLOADER)/g' -e 's/init.bcm21553/init.$(SAMSUNG_BOOTLOADER)/g' $< >$@
+	$(hide) sed -e 's/init.bcm21553/init.$(SAMSUNG_BOOTLOADER)/g' $< >$@
 
 #######################################
 # init.gt-xxxxx.bt.rc
@@ -96,7 +96,7 @@ include $(BUILD_PREBUILT)
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 	@echo "Adjust init rc script for $(SAMSUNG_BOOTLOADER): $< -> $@"
 	@mkdir -p $(dir $@)
-	$(hide) sed -e 's/fstab.bcm21553/fstab.$(SAMSUNG_BOOTLOADER)/g' -e 's/init.bcm21553/init.$(SAMSUNG_BOOTLOADER)/g' $< >$@
+	$(hide) sed -e 's/init.bcm21553/init.$(SAMSUNG_BOOTLOADER)/g' $< >$@
 
 #######################################
 # init.gt-xxxxx.sensors.rc

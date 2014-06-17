@@ -40,15 +40,15 @@ ARM_EABI_TOOLCHAIN				:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-e
 TARGET_KERNEL_SOURCE				:= kernel/samsung/bcm21553-common
 
 # Recovery
-TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/ramdisk/fstab.bcm21553
+TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/recovery.fstab
 BOARD_BML_BOOT					:= "/dev/block/bml7"
 BOARD_BML_RECOVERY				:= "/dev/block/bml8"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/bcm21553_recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
 BOARD_FLASH_BLOCK_SIZE				:= 131072
 TARGET_USERIMAGES_USE_EXT4			:= true
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
 BOARD_HAS_DOWNLOAD_MODE				:= true
-TARGET_RECOVERY_PIXEL_FORMAT			:= BGRA_8888
+TARGET_RECOVERY_PIXEL_FORMAT			:= "BGRA_8888"
 TARGET_NO_SEPARATE_RECOVERY			:= true
 
 # Charger mode
@@ -56,7 +56,6 @@ BOARD_CHARGING_CMDLINE_NAME			:= "BOOT_MODE"
 BOARD_CHARGING_CMDLINE_NEEDS_FS			:= true
 BOARD_CHARGING_CMDLINE_VALUE			:= "1"
 BOARD_CHARGING_CMDLINE_RECOVERY_VALUE		:= "4"
-
 
 # Boot Animation
 TARGET_BOOTANIMATION_PRELOAD 			:= true

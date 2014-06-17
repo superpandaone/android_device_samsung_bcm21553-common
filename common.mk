@@ -25,7 +25,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/bcm21553-common/include
 
 ## Ramdisk
 PRODUCT_PACKAGES += \
-	fstab.$(SAMSUNG_BOOTLOADER) \
+	recovery.fstab \
 	init.$(SAMSUNG_BOOTLOADER).rc \
 	init.$(SAMSUNG_BOOTLOADER).bt.rc \
 	init.$(SAMSUNG_BOOTLOADER).fs.rc \

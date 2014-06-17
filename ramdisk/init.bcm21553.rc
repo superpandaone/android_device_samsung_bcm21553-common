@@ -23,8 +23,11 @@ on init
 on fs
 
 # mount device partitions
-    mount_all /fstab.bcm21553
-    swapon_all /fstab.bcm21553
+    mount j4fs /dev/stl6 /mnt/.lfs
+    mount rfs /dev/stl12 /efs nosuid nodev check=no
+    mount ext4 /dev/stl9 /system wait rw noatime nodiratime noauto_da_alloc
+    mount ext4 /dev/stl10 /cache wait nosuid nodev noatime nodiratime noauto_da_alloc
+    mount ext4 /dev/stl11 /data wait nosuid nodev noatime nodiratime noauto_da_alloc
 
 on post-fs-data
 

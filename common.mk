@@ -89,6 +89,10 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+# Vold
+PRODUCT_COPY_FILES += \
+	device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \

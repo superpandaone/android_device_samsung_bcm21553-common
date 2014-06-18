@@ -95,7 +95,7 @@ BOARD_USE_JPEG					:= true
 COMMON_GLOBAL_CFLAGS				+= -DNEEDS_VECTORIMPL_SYMBOLS
 
 # GPU Stuff
-BOARD_EGL_CFG					:= brcm_usrlib/dag/vmcsx/egl.cfg
+BOARD_EGL_CFG					:= hardware/broadcom/brcm_usrlib/dag/vmcsx/egl.cfg
 BOARD_NO_RGBX_8888				:= true
 #BOARD_NO_32BPP					:= true
 BOARD_LCD_PARTIAL_UPDATES_ENABLED		:= true

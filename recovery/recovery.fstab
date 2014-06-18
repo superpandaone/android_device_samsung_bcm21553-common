@@ -1,4 +1,4 @@
-# mount     	fstype  device                  [device2]
+# mount		fstype	device					[device2]
 
 /boot		bml     boot
 /recovery	bml		recovery

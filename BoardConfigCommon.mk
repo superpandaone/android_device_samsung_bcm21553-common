@@ -117,7 +117,7 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB		:= lib_driver_cmd_wext
 BOARD_WLAN_DEVICE				:= bcm4330
 BOARD_WLAN_DEVICE_REV				:= bcm4330
 
-WIFI_DRIVER_MODULE_PATH				:= "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH				:= "/system/lib/modules/bcm4330.ko"
 WIFI_DRIVER_FW_PATH_AP				:= "/system/etc/wifi/bcm4330_aps.bin"
 WIFI_DRIVER_FW_PATH_STA				:= "/system/etc/wifi/bcm4330_sta.bin"
 WIFI_DRIVER_FW_PATH_P2P				:= "/system/etc/wifi/bcm4330_aps.bin"

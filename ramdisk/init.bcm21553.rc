@@ -18,6 +18,9 @@ on init
     mkdir /mnt/sd-ext 0000 system system
     symlink /mnt/sd-ext /sd-ext
 
+    # vold.fstab (workaround)
+    symlink /system/etc/vold.fstab /etc/vold.fstab
+
 on fs
 
 # mount device partitions

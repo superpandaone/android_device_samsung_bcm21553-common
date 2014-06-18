@@ -25,7 +25,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_C_INCLUDES += \
 		device/samsung/bcm21553-common/libgralloc \
-		brcm_usrlib/dag/v3d_library/inc \
+		hardware/broadcom/brcm_usrlib/dag/v3d_library/inc \
 		hardware/common/opencore/codec/include 
 
 LOCAL_CFLAGS += -DDIRECT_RENDERING

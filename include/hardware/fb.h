@@ -63,11 +63,16 @@ typedef struct framebuffer_device_t {
 
     /* max swap interval supported by this framebuffer */
     const int       maxSwapInterval;
-    
+
+#ifdef BCM_HARDWARE
     const int       smem_start;
     const int       vmem_start;
+#endif
 
-    int reserved[8];
+    /* Number of framebuffers supported*/
+    const int       numFramebuffers;
+
+    int reserved[7];
 
     /*
      * requests a specific swap-interval (same definition than EGL)
@@ -165,3 +170,4 @@ static inline int framebuffer_close(struct framebuffer_device_t* device) {
 __END_DECLS
 
 #endif  // ANDROID_FB_INTERFACE_H
+

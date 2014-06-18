@@ -38,6 +38,6 @@ ifeq ($(BOARD_NO_32BPP),true)
 	LOCAL_CFLAGS += -DNO_32BPP
 endif
 
-LOCAL_C_INCLUDES += brcm_usrlib/dag/v3d_library/inc
+LOCAL_C_INCLUDES += hardware/broadcom/brcm_usrlib/dag/v3d_library/inc
 
 include $(BUILD_SHARED_LIBRARY)

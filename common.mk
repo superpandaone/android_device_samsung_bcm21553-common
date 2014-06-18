@@ -25,17 +25,17 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/bcm21553-common/include
 
 ## Ramdisk
 PRODUCT_PACKAGES += \
-	recovery.fstab \
-	init.$(SAMSUNG_BOOTLOADER).rc \
-	init.$(SAMSUNG_BOOTLOADER).bt.rc \
-	init.$(SAMSUNG_BOOTLOADER).fs.rc \
-	init.$(SAMSUNG_BOOTLOADER).gps.rc \
-	init.$(SAMSUNG_BOOTLOADER).sensors.rc \
-	init.$(SAMSUNG_BOOTLOADER).swapart.rc \
-	init.$(SAMSUNG_BOOTLOADER).usb.rc \
-	init.$(SAMSUNG_BOOTLOADER).wifi.rc \
-	init.recovery.$(SAMSUNG_BOOTLOADER).rc \
-	ueventd.$(SAMSUNG_BOOTLOADER).rc
+    recovery.fstab \
+    init.$(SAMSUNG_BOOTLOADER).rc \
+    init.$(SAMSUNG_BOOTLOADER).bt.rc \
+    init.$(SAMSUNG_BOOTLOADER).fs.rc \
+    init.$(SAMSUNG_BOOTLOADER).gps.rc \
+    init.$(SAMSUNG_BOOTLOADER).sensors.rc \
+    init.$(SAMSUNG_BOOTLOADER).swapart.rc \
+    init.$(SAMSUNG_BOOTLOADER).usb.rc \
+    init.$(SAMSUNG_BOOTLOADER).wifi.rc \
+    init.recovery.$(SAMSUNG_BOOTLOADER).rc \
+    ueventd.$(SAMSUNG_BOOTLOADER).rc
 
 # HW drivers
 PRODUCT_PACKAGES += \
@@ -93,7 +93,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# vold config.
+# Vold config.
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 

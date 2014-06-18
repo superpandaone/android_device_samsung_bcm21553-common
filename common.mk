@@ -71,6 +71,10 @@ PRODUCT_PACKAGES += \
 # Usb accessory
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
+    
+# swapart binary
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/swapart:system/bin/swapart
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -89,9 +93,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Vold
+# vold config.
 PRODUCT_COPY_FILES += \
-	device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab
+    $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -122,13 +126,26 @@ PRODUCT_COPY_FILES += \
 # This is a 16.16 fixed point number
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072
+    
+# Graphics density
+ifneq (,$(filter cooperve,$(CM_BUILD)))
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=160
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=120
+endif
+
+# Memory
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.purgeable_assets=1
 
 # Graphics properties
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.enabletr=false \
     debug.composition.type=gpu \
-    hwui.render_dirty_regions=true \
+    hwui.render_dirty_regions=false \
     hwui.disable_vsync=true \
     hwui.print_config=choice \
     persist.sys.strictmode.visual=false \

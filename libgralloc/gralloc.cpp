@@ -210,7 +210,7 @@ static int gralloc_alloc_buffer(alloc_device_t* dev, size_t size, int usage, buf
 
     if(v_addr == MAP_FAILED)
     {
-        ALOGE("gralloc allocation failed for %d\n",size);
+        LOGE("gralloc allocation failed for %d\n",size);
         return -1;
     }
 
@@ -236,7 +236,7 @@ static int gralloc_alloc_buffer(alloc_device_t* dev, size_t size, int usage, buf
     hnd->alignedw = stride;
     hnd->alignedh = hstride;
     //hnd->handle = (void*)handle;
-    ALOGV("gralloc_alloc_buffer: Handle Values physical addr %x,	virtual addr: %x", hnd->p_addr, hnd->base + hnd->offset);
+    LOGV("gralloc_alloc_buffer: Handle Values physical addr %x,	virtual addr: %x", hnd->p_addr, hnd->base + hnd->offset);
 
     close(fd_handle);
 
@@ -316,7 +316,7 @@ static int gralloc_alloc(alloc_device_t* dev,
     }
 
     if (err < 0) {
-	ALOGE("%s: err = %x",__FUNCTION__,err);
+	LOGE("%s: err = %x",__FUNCTION__,err);
         return err;
     }
 
@@ -338,7 +338,7 @@ static int gralloc_free(alloc_device_t* dev, buffer_handle_t handle)
         int index = (hnd->base - m->framebuffer->base) / bufferSize;
         m->bufferMask &= ~(1<<index);
     } else {
-        ALOGV("gralloc_free: Free - physical addr: %x   virtual addr: %x", hnd->p_addr, hnd->base);
+        LOGV("gralloc_free: Free - physical addr: %x   virtual addr: %x", hnd->p_addr, hnd->base);
 
         //GhwMemHandle* handle = (GhwMemHandle*) hnd->handle;
 

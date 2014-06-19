@@ -45,10 +45,5 @@ on post-fs-data
 # waketime CSP461560
     chown radio system /sys/module/bcm_fuse_net/parameters/pdp_waketime
 
-service charging /system/bin/playlpm
+service charger /charger
     class charger
-
-service lpmkey /system/bin/charging_mode
-    class charger
-    user root
-    oneshot

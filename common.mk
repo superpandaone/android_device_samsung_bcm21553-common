@@ -37,6 +37,11 @@ PRODUCT_PACKAGES += \
     init.recovery.$(SAMSUNG_BOOTLOADER).rc \
     ueventd.$(SAMSUNG_BOOTLOADER).rc
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger \
+    charger_res_images
+
 # HW drivers
 PRODUCT_PACKAGES += \
     libGLES_hgl \

@@ -98,13 +98,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Vold config.
+# Vold config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
-
-# Swapart binary
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/swapart:system/bin/swapart
 
 # Bluetooth config
 PRODUCT_COPY_FILES += \

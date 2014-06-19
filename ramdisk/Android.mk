@@ -110,17 +110,6 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 #######################################
-# init.gt-xxxxx.swapart.rc
-
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= init.$(SAMSUNG_BOOTLOADER).swapart.rc
-LOCAL_MODULE_TAGS	:= optional
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= init.bcm21553.swapart.rc
-LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
-#######################################
 # ueventd.gt-xxxxx.rc
 
 include $(CLEAR_VARS)

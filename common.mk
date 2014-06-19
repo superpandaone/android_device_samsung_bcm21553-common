@@ -42,6 +42,10 @@ PRODUCT_PACKAGES += \
     libGLES_hgl \
     hwcomposer.bcm21553 \
     gralloc.bcm21553
+    
+# Lights
+PRODUCT_PACKAGES += \
+    lights.bcm21553
 
 # Audio
 PRODUCT_PACKAGES += \

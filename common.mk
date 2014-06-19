@@ -23,7 +23,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # These are the hardware-specific configuration files
 
-## Ramdisk
+# Ramdisk
 PRODUCT_PACKAGES += \
     recovery.fstab \
     init.$(SAMSUNG_BOOTLOADER).rc \
@@ -71,10 +71,6 @@ PRODUCT_PACKAGES += \
 # Usb accessory
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
-    
-# swapart binary
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/swapart:system/bin/swapart
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -97,6 +93,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
+# Swapart binary
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/swapart:system/bin/swapart
+
+# Bluetooth config
+PRODUCT_COPY_FILES += \
+    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+
+# WIFI
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/prebuilt/etc/wifi/hostapd.conf:system/etc/wifi/hostapd.conf \
+    $(LOCAL_PATH)/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
@@ -112,15 +122,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     $(LOCAL_PATH)/prebuilt/usr/keychars/sec_key.kcm.bin:system/usr/keychars/sec_key.kcm.bin
 
+# Touchscreen
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/gps.conf:system/etc/gps.conf
+
 # Media
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 #    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
-
-# WIFI
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number

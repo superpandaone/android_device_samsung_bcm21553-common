@@ -22,12 +22,18 @@ on boot
 
     chmod 0775 ro.bt.bdaddr_path
 
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
 service iprenew_bnep0 /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --baudrate 3000000 --patchram /system/etc/firmware/bin/BCM4330B1_002.001.003.0634.0652.hcd /dev/ttyS1
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
+    --baudrate 3000000 --patchram /system/etc/firmware/BCM4330B1_002.001.003.0634.0652.hcd /dev/ttyS1
     class main
     user bluetooth
     group bluetooth net_bt_admin

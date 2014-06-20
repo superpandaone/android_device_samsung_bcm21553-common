@@ -20,12 +20,6 @@ on init
     # vold.fstab (workaround)
     symlink /system/etc/vold.fstab /etc/vold.fstab
 
-    # media codecs (workaround)
-    symlink /system/etc/media_codecs.xml /etc/media_codecs.xml
-
-    # media profiles (workaround)
-    symlink /system/etc/media_profiles.xml /etc/media_profiles.xml
-
 on fs
 
 # mount device partitions

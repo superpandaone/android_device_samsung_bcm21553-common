@@ -35,6 +35,13 @@ PRODUCT_PACKAGES += \
     init.$(SAMSUNG_BOOTLOADER).wifi.rc \
     init.recovery.$(SAMSUNG_BOOTLOADER).rc \
     ueventd.$(SAMSUNG_BOOTLOADER).rc
+    
+# Audio
+PRODUCT_PACKAGES += \
+    audio.primary.bcm21553 \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -121,6 +128,22 @@ PRODUCT_COPY_FILES += \
 # Touchscreen
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+    
+# Audio mixer paths
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# Audio policy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf
+
+# Media codecs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml
+
+# Media profiles
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # GPS configuration
 PRODUCT_COPY_FILES += \

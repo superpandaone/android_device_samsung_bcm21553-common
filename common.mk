@@ -51,6 +51,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.bcm21553
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.primary.bcm21553 \
+    audio_policy.bcm21553 \
+    libtinyalsa \
+    audio.a2dp.default \
+    libaudioutils
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -125,6 +133,11 @@ PRODUCT_COPY_FILES += \
 # GPS configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/gps.conf:system/etc/gps.conf
+
+# Media
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
+#    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number

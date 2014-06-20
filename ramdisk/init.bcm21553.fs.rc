@@ -54,11 +54,11 @@ on init
     chown radio system /dev/radionv
     chmod 0770 /dev/radionv
 
-# load FSR module
+# load FSR modules
     insmod /lib/modules/fsr.ko
     insmod /lib/modules/fsr_stl.ko
 
-# load RFS module
+# load RFS modules
     insmod /lib/modules/rfs_glue.ko
     insmod /lib/modules/rfs_fat.ko
 
@@ -67,7 +67,13 @@ on init
 
 on boot
 
+# load HANTRO decoding/encoding hardware modules
     insmod /system/lib/modules/hx170dec.ko
     insmod /system/lib/modules/h6270enc.ko
+    
+# load Broadcom USB Gadget modules
     insmod /system/lib/modules/brcm_switch.ko
+    insmod /system/lib/modules/brcm_test_drv.ko
+      
+# load Broadcom Headset module
     insmod /system/lib/modules/brcm-headsetsw.ko

@@ -205,7 +205,7 @@ static void select_devices(struct audio_device *adev)
 
     audio_route_update_mixer(adev->ar);
 
-    ALOGV("hp=%c speaker=%c dock=%c main-mic=%c", headphone_on ? 'y' : 'n',
+    LOGV("hp=%c speaker=%c dock=%c main-mic=%c", headphone_on ? 'y' : 'n',
           speaker_on ? 'y' : 'n', docked ? 'y' : 'n', main_mic_on ? 'y' : 'n');
 }
 
@@ -294,7 +294,7 @@ static int start_output_stream(struct stream_out *out)
     out->pcm = pcm_open(PCM_CARD, device, PCM_OUT | PCM_NORESTART | PCM_MONOTONIC, out->pcm_config);
 
     if (out->pcm && !pcm_is_ready(out->pcm)) {
-        ALOGE("pcm_open(out) failed: %s", pcm_get_error(out->pcm));
+        LOGE("pcm_open(out) failed: %s", pcm_get_error(out->pcm));
         pcm_close(out->pcm);
         return -ENOMEM;
     }
@@ -362,7 +362,7 @@ static int start_input_stream(struct stream_in *in)
     in->pcm = pcm_open(PCM_CARD, device, PCM_IN, in->pcm_config);
 
     if (in->pcm && !pcm_is_ready(in->pcm)) {
-        ALOGE("pcm_open(in) failed: %s", pcm_get_error(in->pcm));
+        LOGE("pcm_open(in) failed: %s", pcm_get_error(in->pcm));
         pcm_close(in->pcm);
         return -ENOMEM;
     }
@@ -415,7 +415,7 @@ static int get_next_buffer(struct resampler_buffer_provider *buffer_provider,
                                    (void*)in->buffer,
                                    in->buffer_size);
         if (in->read_status != 0) {
-            ALOGE("get_next_buffer() pcm_read error %d", in->read_status);
+            LOGE("get_next_buffer() pcm_read error %d", in->read_status);
             buffer->raw = NULL;
             buffer->frame_count = 0;
             return in->read_status;
@@ -706,7 +706,7 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
                     break;
                 total_sleep_time_us += sleep_time_us;
                 if (total_sleep_time_us > MAX_WRITE_SLEEP_US) {
-                    ALOGW("out_write() limiting sleep time %d to %d",
+                    LOGW("out_write() limiting sleep time %d to %d",
                           total_sleep_time_us, MAX_WRITE_SLEEP_US);
                     sleep_time_us = MAX_WRITE_SLEEP_US -
                                         (total_sleep_time_us - sleep_time_us);

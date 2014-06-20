@@ -101,9 +101,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/libaudio/audio_policy.conf:system/etc/audio_policy.conf
-
 # Bluetooth config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf

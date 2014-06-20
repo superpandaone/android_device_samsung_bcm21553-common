@@ -22,7 +22,7 @@ on boot
 
     chown gps system /data/gps/glgpsctrl
 
-# define broadcom gps properties
+# define Broadcom GPS properties
     setprop gps.fd.block "false"
 
 service gpsd /system/bin/glgps -c /system/etc/gps/glconfig4751.xml

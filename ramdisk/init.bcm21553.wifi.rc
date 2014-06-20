@@ -49,7 +49,7 @@ service wlandutservice /system/bin/wlandutservice
     disabled
     oneshot
 
-# get mac addresses via RIL for wifi & BT
+# get MAC Addresses via RIL for WiFi & BT
 service get_macaddrs /system/bin/logwrapper /system/bin/get_macaddrs
     class main
     user root

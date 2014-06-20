@@ -129,7 +129,6 @@ WIFI_DRIVER_MODULE_NAME				:= "bcm4330"
 #BOARD_BLUEDROID_VENDOR_CONF			:= device/samsung/bcm21553-common/bluetooth/vnd_samsung.txt
 BOARD_HAVE_BLUETOOTH				:= true
 BOARD_HAVE_BLUETOOTH_BCM			:= true
-BOARD_HAVE_SAMSUNG_BLUETOOTH			:= true
 
 # Browser
 JS_ENGINE					:= v8

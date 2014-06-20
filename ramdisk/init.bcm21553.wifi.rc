@@ -50,7 +50,7 @@ service wlandutservice /system/bin/wlandutservice
     oneshot
 
 # get mac addresses via RIL for wifi & BT
-service get_macaddrs /system/bin/logwrapper -k /system/bin/get_macaddrs
+service get_macaddrs /system/bin/logwrapper /system/bin/get_macaddrs
     class main
     user root
     oneshot

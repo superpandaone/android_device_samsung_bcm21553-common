@@ -12,23 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Libs
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    overlay.bcm21553 \
-    lights.bcm21553
-
-# Audio
-PRODUCT_PACKAGES += \
-    alsa.default \
-    acoustics.default
-
-# Update utilities
-PRODUCT_PACKAGES += \
-    libOmxCore \
-    SamsungServiceMode \
-    screencap \
-    FM
+# SAMSUNG_BOOTLOADER is the product model changed into appropriate string parsed by init
+#SAMSUNG_BOOTLOADER := $(shell echo $(PRODUCT_VERSION_DEVICE_SPECIFIC)board | tr '[A-Z]' '[a-z]' | cut -c 2-)
+#SAMSUNG_BOOTLOADER := $(shell echo $(PRODUCT_MODEL)board)
+SAMSUNG_BOOTLOADER := gt-s5830i
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -51,7 +38,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
-    frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -74,10 +60,12 @@ PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/samsung/bcm21553-common/prebuilt/usr/keylayout/sec_keypad.kl:system/usr/keylayout/sec_keypad.kl
 
-# Media
+# Audio
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
-    device/samsung/bcm21553-common/prebuilt/etc/asound.conf:system/etc/asound.conf \
+    device/samsung/bcm21553-common/prebuilt/etc/asound.conf:system/etc/asound.conf
+
+# Vold
+PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 # GPS
@@ -86,15 +74,14 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/lib/modules/dhd.ko:system/lib/modules/dhd.ko \
-    device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs \
-    device/samsung/bcm21553-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrsnf
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/bin/brcm_patchram_plus:system/bin/brcm_patchram_plus \
-    device/samsung/bcm21553-common/prebuilt/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko
+    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
+    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
 
-# Media Profiles
-PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.opengles.version=131072

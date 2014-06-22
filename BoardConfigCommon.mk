@@ -29,6 +29,28 @@ TARGET_CPU_ABI2 				:= armeabi
 TARGET_NO_BOOTLOADER	 			:= true
 TARGET_NO_RADIOIMAGE	 			:= true
 
+# Kernel
+BOARD_KERNEL_BASE				:= 0x81600000
+BOARD_KERNEL_PAGESIZE				:= 4096
+BOARD_NAND_PAGE_SIZE				:= 4096
+BOARD_NAND_SPARE_SIZE				:= 128
+TARGET_NO_BOOTLOADER				:= true
+TARGET_NO_RADIOIMAGE				:= true
+
+# Custom bootimg (recovery merged into boot ramdisk)
+BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/bcm21553-common/bcm21553-bootimg.mk
+
+# Recovery
+BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
+BOARD_CUSTOM_GRAPHICS				:= ../../../device/samsung/bcm21553-common/recovery/graphics.c
+BOARD_BML_BOOT					:= "/dev/block/bml7"
+BOARD_BML_RECOVERY				:= "/dev/block/bml8"
+BOARD_FLASH_BLOCK_SIZE				:= 131072
+BCM21553_RECOVERY				:= true
+TARGET_USERIMAGES_USE_EXT4			:= true
+BOARD_RECOVERY_HANDLES_MOUNT			:= true
+
+
 # Audio
 BOARD_USES_GENERIC_AUDIO 			:= false
 TARGET_PROVIDES_LIBAUDIO			:= false
@@ -36,31 +58,20 @@ BOARD_USES_ALSA_AUDIO 				:= true
 BUILD_WITH_ALSA_UTILS 				:= true
 
 # Camera
-USE_CAMERA_STUB 				:= true
-#ifeq ($USE_CAMERA_STUB),false)
-#BOARD_CAMERA_LIBRARIES 			:= libcamera
-#BOARD_USE_CAF_LIBCAMERA_GB_REL 		:= true
-#BOARD_CAMERA_USE_GETBUFFERINFO 		:= true
-#endif
+USE_CAMERA_STUB 				:= false
+BOARD_USE_CAF_LIBCAMERA_GB_REL	 		:= true
+BOARD_CAMERA_USE_GETBUFFERINFO	 		:= true
 
 # 3D
 BOARD_EGL_CFG	 				:= device/samsung/bcm21553-common/prebuilt/lib/egl/egl.cfg
 BOARD_USES_HGL					:= true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION		:= true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS		:= true
-TARGET_USES_16BPPSURFACE_FOR_OPAQUE		:= true
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS 		:= true
 USE_OPENGL_RENDER 				:= true
 TARGET_ELECTRONBEAM_FRAMES 			:= 20
 
 # Mobile Data
 BOARD_MOBILEDATA_INTERFACE_NAME 		:= "pdp0"
-
-# Device related defines
-BOARD_NAND_PAGE_SIZE	 			:= 4096 -s 128
-BOARD_KERNEL_BASE 				:= 0x81600000
-BOARD_KERNEL_PAGESIZE	 			:= 4096
-BOARD_PAGE_SIZE 				:= 0x00001000
 
 # JIT / Optimizations
 WITH_JIT 					:= true
@@ -75,11 +86,12 @@ BOARD_UMS_LUNFILE 				:= "/sys/devices/lm-2/gadget/lun0/file"
 
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER 			:= WEXT
+BOARD_WLAN_DEVICE				:= bcm4330
 WPA_SUPPLICANT_VERSION 				:= VER_0_6_X
 WIFI_DRIVER_MODULE_PATH 			:= "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_STA_PATH				:= "/system/etc/wifi/bcm4330_sta.bin"
-WIFI_DRIVER_FW_AP_PATH 				:= "/system/etc/wifi/bcm4330_aps.bin"
-WIFI_DRIVER_MODULE_ARG				:= "firmware_path=/system/etc/wifi/bcm4330_sta.bin nvram_path=/system/etc/wifi/nvram.txt"
+WIFI_DRIVER_FW_STA_PATH				:= "/system/etc/firmware/bcm4330_sta.bin"
+WIFI_DRIVER_FW_AP_PATH 				:= "/system/etc/firmware/bcm4330_aps.bin"
+WIFI_DRIVER_MODULE_ARG				:= "firmware_path=/system/etc/firmware/bcm4330_sta.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_MODULE_NAME 			:= "bcm4330"
 
 # Bluetooth
@@ -90,22 +102,3 @@ BOARD_HAVE_BLUETOOTH_BCM			:= true
 BOARD_HAVE_FM_RADIO				:= true
 BOARD_GLOBAL_CFLAGS				+= -DHAVE_FM_RADIO
 BOARD_FM_DEVICE					:= bcm4329
-
-# Common Recovery parts
-BCM21553_RECOVERY				:= true
-BOARD_RECOVERY_HANDLES_MOUNT			:= true
-BOARD_RECOVERY_HANDLES_MOUNT			:= true
-TARGET_PROVIDES_INIT_RC				:= true
-BOARD_HAS_NO_RECOVERY_PARTITION			:= true
-TARGET_RECOVERY_INITRC				:= device/samsung/bcm21553-common/prebuilt/root/recovery.rc
-BOARD_CUSTOM_PROP_TARGET			:= device/samsung/bcm21553-common/prebuilt/root/default.prop
-
-# Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE			:= 7357568
-BOARD_RECOVERYIMAGE_PARTITION_SIZE		:= 7357568
-BOARD_SYSTEMIMAGE_PARTITION_SIZE		:= 241172480
-BOARD_USERDATAIMAGE_PARTITION_SIZE		:= 206831616
-BOARD_FLASH_BLOCK_SIZE				:= 131072
-TARGET_USERIMAGES_USE_EXT4			:= true
-BOARD_HAS_SDCARD_INTERNAL			:= true
-BOARD_HAS_DOWNLOAD_MODE				:= true

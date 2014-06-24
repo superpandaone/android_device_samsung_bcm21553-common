@@ -67,7 +67,7 @@ on init
 
 on boot
 
-# Bacem Tweak support
+    # Bacem Tweak support
     write /proc/sys/bacem/volt/cpu -60mV
 
 # load HANTRO decoding/encoding hardware modules

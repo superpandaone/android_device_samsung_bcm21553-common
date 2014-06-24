@@ -206,6 +206,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=adb,mass_storage \
     persist.service.adb.enable=1 \
     ro.vold.umsdirtyratio=20
+    
+# Development & ADB authentication settings
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.debuggable=1 \
+    ro.secure=0 \
+    ro.allow.mock.location=0
 
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \

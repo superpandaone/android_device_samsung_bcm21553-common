@@ -1488,7 +1488,7 @@ status_t AudioHardware::AudioStreamInALSA::set(
         mBufferProvider.mProvider.get_next_buffer = getNextBufferStatic;
         mBufferProvider.mProvider.release_buffer = releaseBufferStatic;
         mBufferProvider.mInputStream = this;
-        int status = create_resampler(AUDIO_HW_OUT_SAMPLERATE,
+        int status = create_resampler(AUDIO_HW_IN_SAMPLERATE,
                                                     mSampleRate,
                                                     mChannelCount,
                                                     RESAMPLER_QUALITY_VOIP,

@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.bcm21553
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -137,7 +141,10 @@ PRODUCT_COPY_FILES += \
 # Media
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
-#    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
+
+# ALSA Sound configuration file
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
@@ -206,12 +213,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=adb,mass_storage \
     persist.service.adb.enable=1 \
     ro.vold.umsdirtyratio=20
-    
-# Development & ADB authentication settings
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.debuggable=1 \
-    ro.secure=0 \
-    ro.allow.mock.location=0
 
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \

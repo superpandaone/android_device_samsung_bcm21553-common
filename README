@@ -1,10 +1,11 @@
-Copyright 2014 - The CyanogenMod Project
+android_device_samsung_bcm21553
+===============================
 
-Common Device configuration for Samsung BCM21553 Devices
+Configuration for Samsung BCM21553 devices
 
-TO-DO:
+Current devices supported
+-------------------------
 
-- Renew Offline Charging
-- Camera Library
-- Audio Library
-- Optimize HGL 3D Library
+	* Cooperve - GT-S5830i
+	* Tassve - GT-S5570i
+	* Totoro - GT-S5360

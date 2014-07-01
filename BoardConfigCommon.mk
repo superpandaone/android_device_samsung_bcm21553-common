@@ -42,7 +42,7 @@ TARGET_KERNEL_SOURCE				:= kernel/samsung/bcm21553-common
 # Recovery
 TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/recovery.fstab
 BOARD_BML_BOOT					:= "/dev/block/bml7"
-BOARD_BML_RECOVERY				:= "/dev/block/bml8"
+BOARD_BML_RECOVERY				:= "/dev/block/bml7"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
 BOARD_FLASH_BLOCK_SIZE				:= 131072
 TARGET_USERIMAGES_USE_EXT4			:= true
@@ -103,8 +103,8 @@ COMMON_GLOBAL_CFLAGS				+= -DSAMSUNG_CAMERA_LEGACY
 BOARD_EGL_CFG					:= hardware/broadcom/brcm_usrlib/dag/vmcsx/egl.cfg
 BOARD_NO_RGBX_8888				:= true
 #BOARD_NO_32BPP					:= true
-BOARD_LCD_PARTIAL_UPDATES_ENABLED		:= true
-BOARD_NO_PAGE_FLIPPING				:= true
+#BOARD_LCD_PARTIAL_UPDATES_ENABLED		:= true
+#BOARD_NO_PAGE_FLIPPING				:= true
 USE_OPENGL_RENDERER				:= true
 COMMON_GLOBAL_CFLAGS				+= -DNO_RGBX_8888 -DMISSING_EGL_PIXEL_FORMAT_YV12
 

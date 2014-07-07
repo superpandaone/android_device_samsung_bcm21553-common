@@ -28,6 +28,9 @@ TARGET_CPU_ABI	 				:= armeabi-v6l
 TARGET_CPU_ABI2 				:= armeabi
 TARGET_NO_BOOTLOADER	 			:= true
 TARGET_NO_RADIOIMAGE	 			:= true
+BCM21553_HARDWARE				:= true
+BOARD_USES_BROADCOM_HARDWARE			:= true
+COMMON_GLOBAL_CFLAGS				+= -DBCM_HARDWARE
 
 # Kernel
 BOARD_KERNEL_BASE				:= 0x81600000
@@ -44,12 +47,11 @@ BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/bcm21553-common/bcm21553-bootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
 BOARD_CUSTOM_GRAPHICS				:= ../../../device/samsung/bcm21553-common/recovery/graphics.c
 BOARD_BML_BOOT					:= "/dev/block/bml7"
-BOARD_BML_RECOVERY				:= "/dev/block/bml8"
+BOARD_BML_RECOVERY				:= "/dev/block/bml7"
 BOARD_FLASH_BLOCK_SIZE				:= 131072
 BCM21553_RECOVERY				:= true
 TARGET_USERIMAGES_USE_EXT4			:= true
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
-
 
 # Audio
 BOARD_USES_GENERIC_AUDIO 			:= false
@@ -88,7 +90,7 @@ BOARD_UMS_LUNFILE 				:= "/sys/devices/lm-2/gadget/lun0/file"
 BOARD_WPA_SUPPLICANT_DRIVER 			:= WEXT
 BOARD_WLAN_DEVICE				:= bcm4330
 WPA_SUPPLICANT_VERSION 				:= VER_0_6_X
-WIFI_DRIVER_MODULE_PATH 			:= "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH 			:= "/system/lib/modules/bcm4330.ko"
 WIFI_DRIVER_FW_STA_PATH				:= "/system/etc/firmware/bcm4330_sta.bin"
 WIFI_DRIVER_FW_AP_PATH 				:= "/system/etc/firmware/bcm4330_aps.bin"
 WIFI_DRIVER_MODULE_ARG				:= "firmware_path=/system/etc/firmware/bcm4330_sta.bin nvram_path=/system/etc/firmware/nvram.txt"

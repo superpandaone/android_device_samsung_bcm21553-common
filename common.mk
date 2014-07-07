@@ -12,11 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# SAMSUNG_BOOTLOADER is the product model changed into appropriate string parsed by init
-#SAMSUNG_BOOTLOADER := $(shell echo $(PRODUCT_VERSION_DEVICE_SPECIFIC)board | tr '[A-Z]' '[a-z]' | cut -c 2-)
-#SAMSUNG_BOOTLOADER := $(shell echo $(PRODUCT_MODEL)board)
-SAMSUNG_BOOTLOADER := gt-s5830i
-
 # Recovery
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -44,6 +39,14 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+
+# Kernel modules
+PRODUCT_COPY_FILES += \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/bcm4330.ko:system/lib/modules/bcm4330.ko \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/brcm-headsetsw.ko:system/lib/modules/brcm-headsetsw.ko \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/h6270enc.ko:system/lib/modules/h6270enc.ko \
+    device/samsung/bcm21553-common/prebuilt/lib/modules/hx170dec.ko:system/lib/modules/hx170dec.ko
 
 # Keychars
 PRODUCT_COPY_FILES += \
@@ -74,7 +77,8 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrsnf
+    device/samsung/bcm21553-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
 
 # Bluetooth
 PRODUCT_COPY_FILES += \

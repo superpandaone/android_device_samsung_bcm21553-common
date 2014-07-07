@@ -141,7 +141,7 @@ HTTP						:= chrome
 WITH_JIT					:= true
 ENABLE_JSC_JIT					:= true
 TARGET_WEBKIT_USE_MORE_MEMORY			:= true
-#TARGET_FORCE_CPU_UPLOAD				:= true
+TARGET_FORCE_CPU_UPLOAD				:= true
 
 # FM
 #BOARD_HAVE_FM_RADIO				:= true

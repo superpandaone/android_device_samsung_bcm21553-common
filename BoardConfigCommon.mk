@@ -141,7 +141,7 @@ HTTP						:= chrome
 WITH_JIT					:= true
 ENABLE_JSC_JIT					:= true
 TARGET_WEBKIT_USE_MORE_MEMORY			:= true
-TARGET_FORCE_CPU_UPLOAD				:= true
+#TARGET_FORCE_CPU_UPLOAD				:= true
 
 # Packages
 BOARD_NO_HWCODECS					:= true

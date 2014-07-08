@@ -141,6 +141,7 @@ JS_ENGINE					:= v8
 HTTP						:= chrome
 WITH_JIT					:= true
 ENABLE_JSC_JIT					:= true
+ENABLE_WEBGL				:= true
 TARGET_WEBKIT_USE_MORE_MEMORY			:= true
 TARGET_FORCE_CPU_UPLOAD				:= true
 

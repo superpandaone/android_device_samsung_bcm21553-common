@@ -56,7 +56,8 @@ PRODUCT_PACKAGES += \
     audio.primary.bcm21553 \
     audio.a2dp.default \
     audio.usb.default \
-    audio.r_submix.default
+    audio.r_submix.default \
+    libaudioroute
 
 # Camera
 PRODUCT_PACKAGES += \

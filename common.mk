@@ -63,13 +63,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.bcm21553
 
-# Video decoding
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libopencorehw \
-    libmm-omxcore \
-    libOmxCore
-
 # Other
 PRODUCT_PACKAGES += \
     CMFileManager \

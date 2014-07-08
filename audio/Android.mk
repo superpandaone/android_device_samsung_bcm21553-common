@@ -22,7 +22,7 @@ LOCAL_SRC_FILES := \
 	audio_hw.c
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../tinyalsa_bcm/include \
-	$(call include-path-for, audio-utils) \
+	system/media/audio_utils/include \
 	$(LOCAL_PATH)/../audio_route/include
 LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa_bcm libaudioutils libaudioroute
 LOCAL_MODULE_TAGS := optional

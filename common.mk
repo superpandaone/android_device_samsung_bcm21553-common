@@ -165,7 +165,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hwui.render_dirty_regions=false \
     hwui.disable_vsync=true \
     hwui.print_config=choice \
-    ro.hwui.layer_cache_size=0 \
     persist.sys.strictmode.visual=false \
     persist.sys.use_dithering=0
 

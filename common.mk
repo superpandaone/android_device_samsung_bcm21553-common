@@ -54,10 +54,9 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.bcm21553 \
-    audio_policy.bcm21553 \
-    libtinyalsa \
     audio.a2dp.default \
-    libaudioutils
+    audio.usb.default \
+    audio.r_submix.default
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -131,13 +130,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/gps.conf:system/etc/gps.conf
 
-# Media
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
-
-# ALSA Sound configuration file
+# Audio mixer paths
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
+    device/samsung/bcm21553-common/prebuilt/etc/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# Audio policy
+PRODUCT_COPY_FILES += \
+    device/samsung/bcm21553-common/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf
+
+# Media codecs
+PRODUCT_COPY_FILES += \
+    device/samsung/bcm21553-common/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml
+
+# Media profiles
+PRODUCT_COPY_FILES += \
+    device/samsung/bcm21553-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number

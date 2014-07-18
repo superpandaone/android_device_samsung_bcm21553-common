@@ -70,8 +70,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
-    device/samsung/bcm21553-common/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
+    $(LOCAL_PATH)/prebuilt/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
+    $(LOCAL_PATH)/prebuilt/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
     
 # WIFI
 PRODUCT_COPY_FILES += \
@@ -104,11 +104,11 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/etc/asound.conf:system/etc/asound.conf
+    $(LOCAL_PATH)/prebuilt/etc/asound.conf:system/etc/asound.conf
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/samsung/bcm21553-common/prebuilt/etc/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number

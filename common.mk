@@ -64,6 +64,14 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+# Kernel modules
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/lib/modules/bcm4330.ko:system/lib/modules/bcm4330.ko \
+    $(LOCAL_PATH)/prebuilt/lib/modules/brcm-headsetsw.ko:system/lib/modules/brcm-headsetsw.ko \
+    $(LOCAL_PATH)/prebuilt/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
+    $(LOCAL_PATH)/prebuilt/lib/modules/h6270enc.ko:system/lib/modules/h6270enc.ko \
+    $(LOCAL_PATH)/prebuilt/lib/modules/hx170dec.ko:system/lib/modules/hx170dec.ko
+
 # Vold config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab

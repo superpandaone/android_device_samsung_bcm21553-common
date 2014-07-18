@@ -21,7 +21,7 @@
 LOCAL_PATH:= $(call my-dir)
 
 # Custom bootimg (recovery merged into boot ramdisk)
-BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/bcm21553-common/bcm21553-bootimg.mk
+#BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/bcm21553-common/bcm21553-bootimg.mk
 
 # Kernel
 BOARD_KERNEL_BASE				:= 0x81600000
@@ -71,6 +71,9 @@ TARGET_PROVIDES_LIBAUDIO			:= false
 BOARD_USES_ALSA_AUDIO 				:= true
 BUILD_WITH_ALSA_UTILS 				:= true
 
+# Custom backlight
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH		:= \"/sys/class/backlight/aat1401-backlight/brightness\"
+
 # Mobile Data
 BOARD_MOBILEDATA_INTERFACE_NAME 		:= "pdp0"
 
@@ -85,7 +88,9 @@ BOARD_EGL_CFG	 				:= device/samsung/bcm21553-common/prebuilt/lib/egl/egl.cfg
 BOARD_NO_RGBX_8888				:= true
 BOARD_USES_HGL					:= true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION		:= true
-#TARGET_LIBAGL_USE_GRALLOC_COPYBITS		:= true
+#test
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS		:= true
+USE_OPENGL_RENDER := true
 COMMON_GLOBAL_CFLAGS				+= -DNO_RGBX_8888
 
 # USB
@@ -96,7 +101,6 @@ BOARD_UMS_LUNFILE 				:= "/sys/devices/lm-2/gadget/lun0/file"
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER 			:= WEXT
 WPA_SUPPLICANT_VERSION 				:= VER_0_6_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB		:= lib_driver_cmd_wext
 BOARD_WLAN_DEVICE				:= bcm4330
 BOARD_WLAN_DEVICE_REV				:= bcm4330
 
@@ -115,7 +119,7 @@ JS_ENGINE					:= v8
 HTTP						:= chrome
 WITH_JIT					:= true
 ENABLE_JSC_JIT					:= true
-ENABLE_WEBGL				:= true
+ENABLE_WEBGL					:= true
 TARGET_WEBKIT_USE_MORE_MEMORY			:= true
 TARGET_FORCE_CPU_UPLOAD				:= true
 

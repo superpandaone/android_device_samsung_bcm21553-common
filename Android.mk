@@ -13,7 +13,5 @@
 # limitations under the License.
 
 ifeq ($(TARGET_BOARD_PLATFORM),bcm21553)
-    ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),cooperve tassve totoro cori)
-        include $(all-subdir-makefiles)
-    endif
+    include $(all-subdir-makefiles)
 endif

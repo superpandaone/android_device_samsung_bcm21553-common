@@ -8,7 +8,7 @@ Currently devices supported:
   * Galaxy Mini i - (GT-S5570i)
   * Galaxy Pocket - (GT-S5300)
 
-People who made this possible: (alfabetical) 
+People who made this possible: (alfabetical)
 
   * Bieltv.3
   * Kissingmylove

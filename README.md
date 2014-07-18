@@ -10,6 +10,7 @@ Currently devices supported:
 
 People who made this possible: (alfabetical)
 
+  * Alberto96
   * Bieltv.3
   * Kissingmylove
   * Lopicl.00

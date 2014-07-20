@@ -32,6 +32,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.bcm21553
 
+# HW
+PRODUCT_PACKAGES += \
+    gralloc.bcm21553
+
 # Device-specific packages
 PRODUCT_PACKAGES += \
     SamsungServiceMode

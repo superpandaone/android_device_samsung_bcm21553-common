@@ -23,11 +23,10 @@ on init
 on fs
 
 # mount device partitions
-    mount j4fs /dev/stl6 /mnt/.lfs
-    mount rfs /dev/stl12 /efs nosuid nodev check=no
-    mount ext4 /dev/stl9 /system wait rw noatime nodiratime noauto_da_alloc
-    mount ext4 /dev/stl10 /cache wait rw nosuid nodev noatime nodiratime noauto_da_alloc
-    mount ext4 /dev/stl11 /data wait rw nosuid nodev noatime nodiratime noauto_da_alloc
+    mount yaffs2 mtd@system /system
+    mount yaffs2 mtd@system /system ro remount
+    mount yaffs2 mtd@userdata /data nosuid nodev
+    mount yaffs2 mtd@cache /cache nosuid nodev
 
 on post-fs-data
 

@@ -321,7 +321,6 @@ static int gralloc_alloc(alloc_device_t* dev,
             bpp = 3;
             break;
         case HAL_PIXEL_FORMAT_RGB_565:
-        case HAL_PIXEL_FORMAT_RAW_SENSOR:
 #ifdef BCM_HARDWARE
             tempw = (w+63)&0xFFFFFFC0;
 #endif

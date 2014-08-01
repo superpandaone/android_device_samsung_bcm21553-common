@@ -166,7 +166,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hwui.disable_vsync=true \
     hwui.print_config=choice \
     persist.sys.strictmode.visual=false \
-    persist.sys.use_dithering=0
+    persist.sys.use_dithering=0 \
+    persist.sys.prefer_16bpp=1
 
 # Misc. Tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -179,13 +180,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=36m \
-    dalvik.vm.heapsize=64m \
     dalvik.vm.execution-mode=int:jit \
     dalvik.vm.debug.alloc=0 \
     dalvik.vm.dexopt-data-only=1 \
     dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
+
+$(call inherit-product, frameworks/base/build/phone-hdpi-dalvik-heap.mk)
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \

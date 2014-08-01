@@ -62,7 +62,7 @@ using namespace ghw;
 #endif
 
 struct hwc_context_t {
-    hwc_composer_device_1_t device;
+    hwc_composer_device_t device;
     /* our private state goes below here */
 #ifdef BCM_HARDWARE
     pthread_t vsync_thread;
@@ -113,7 +113,7 @@ static int hwc_create_vsync_thread(struct hwc_context_t *dev)
 }
 #endif
 
-static void dump_layer(hwc_layer_1_t const* l) {
+static void dump_layer(hwc_layer_t const* l) {
     LOGD("\ttype=%d, flags=%08x, handle=%p, tr=%02x, blend=%04x, {%d,%d,%d,%d}, {%d,%d,%d,%d}",
             l->compositionType, l->flags, l->handle, l->transform, l->blending,
             l->sourceCrop.left,
@@ -126,8 +126,8 @@ static void dump_layer(hwc_layer_1_t const* l) {
             l->displayFrame.bottom);
 }
 
-static int hwc_prepare(hwc_composer_device_1_t *dev,
-        size_t numDisplays, hwc_display_contents_1_t** displays) {
+static int hwc_prepare(hwc_composer_device_t *dev,
+        size_t numDisplays, hwc_display_contents_t** displays) {
 #ifdef BCM_HARDWARE
     struct hwc_context_t* ctx = (struct hwc_context_t*)dev;
 #endif
@@ -220,8 +220,8 @@ static int get_lib_format(const int& in, u32& format, u32& intformat)
 }
 #endif
 
-static int hwc_set(hwc_composer_device_1_t *dev,
-        size_t numDisplays, hwc_display_contents_1_t** displays)
+static int hwc_set(hwc_composer_device_t *dev,
+        size_t numDisplays, hwc_display_contents_t** displays)
 {
     //for (size_t i=0 ; i<list->numHwLayers ; i++) {
     //    dump_layer(&list->hwLayers[i]);

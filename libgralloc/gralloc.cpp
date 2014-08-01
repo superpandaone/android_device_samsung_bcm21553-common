@@ -279,7 +279,7 @@ static int gralloc_alloc_buffer(alloc_device_t* dev,
     hnd->alignedw = stride;
     hnd->alignedh = hstride;
     //hnd->handle = (void*)handle;
-    LOGV("gralloc_alloc_buffer: Handle Values physical addr %x,    virtual addr: %x", hnd->p_addr, hnd->base + hnd->offset)
+    LOGV("gralloc_alloc_buffer: Handle Values physical addr %x,    virtual addr: %x", hnd->p_addr, hnd->base + hnd->offset);
 
     close(fd_handle);
 

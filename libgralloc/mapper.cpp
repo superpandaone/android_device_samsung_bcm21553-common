@@ -133,7 +133,7 @@ int gralloc_register_buffer(gralloc_module_t const* module,
     //   problems. Most modern L1 caches fit that description.
 
     private_handle_t* hnd = (private_handle_t*)handle;
-    ALOGD_IF(hnd->pid == getpid(),
+    LOGD_IF(hnd->pid == getpid(),
             "Registering a buffer in the process that created it. "
             "This may cause memory ordering problems.");
 

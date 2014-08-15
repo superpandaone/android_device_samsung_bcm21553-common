@@ -20,6 +20,9 @@ on init
     # vold.fstab (workaround)
     symlink /system/etc/vold.fstab /etc/vold.fstab
 
+    # zRAM - see https://source.android.com/devices/low-ram.html
+    write /proc/sys/vm/page-cluster 0
+
 on fs
 
 # mount device partitions

@@ -42,11 +42,13 @@ TARGET_KERNEL_SOURCE				:= kernel/samsung/bcm21553-common
 # Recovery
 ifneq (,$(filter cori,$(CM_BUILD)))
 TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/mmc/recovery.fstab
+TARGET_USERIMAGES_USE_EXT4			:= true
+BOARD_FLASH_BLOCK_SIZE				:= 4096
 else
 TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/mtd/recovery.fstab
+BOARD_FLASH_BLOCK_SIZE				:= 131072
 endif
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
-BOARD_FLASH_BLOCK_SIZE				:= 131072
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
 BOARD_HAS_DOWNLOAD_MODE				:= true
 TARGET_RECOVERY_PIXEL_FORMAT			:= "BGRA_8888"

@@ -40,7 +40,11 @@ ARM_EABI_TOOLCHAIN				:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-e
 TARGET_KERNEL_SOURCE				:= kernel/samsung/bcm21553-common
 
 # Recovery
-TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/recovery.fstab
+ifneq (,$(filter cori,$(CM_BUILD)))
+TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/mmc/recovery.fstab
+else
+TARGET_RECOVERY_FSTAB				:= device/samsung/bcm21553-common/recovery/mtd/recovery.fstab
+endif
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/bcm21553-common/recovery/recovery_ui.c
 BOARD_FLASH_BLOCK_SIZE				:= 131072
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
